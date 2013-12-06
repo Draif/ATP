@@ -26,7 +26,7 @@ public:
     };
     
     StringAutomate(const std::string& temp) {
-        _template = ' ' + temp;
+        _template = " " + temp;
         templateSize = temp.size();
     }
 
@@ -114,6 +114,7 @@ class StringAutomateFactory {
 public:
     StringAutomate BuildAutomate(const std::string& _template) {
         StringAutomate returnAutomate(_template);
+        InitializeAutomate(returnAutomate, _template);
         return returnAutomate;
     }
 };
