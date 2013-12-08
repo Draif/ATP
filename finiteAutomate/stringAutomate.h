@@ -4,7 +4,11 @@
 #include <vector>
 #include <memory>
 
-
+// TODO: change Automate to Automaton (pl. Automata)
+// TODO: remove private fields from interface (and friend classes)
+// TODO: you can remove interface for Factory
+// and everything will be ok ;)
+// EAT SLEEP RAVE REPEAT
 
 class IStringAutomate {
 public:
@@ -167,12 +171,4 @@ public:
         return returnValue;
     }
 };
-
-
-
-
-
-
-
-
 
