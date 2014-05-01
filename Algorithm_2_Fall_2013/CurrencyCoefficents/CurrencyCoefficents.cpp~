@@ -1,0 +1,75 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <climits>
+#include "Graph.h"
+using namespace std;
+
+
+class CurrencyNode {
+public:
+    CurrencyNode(int i) {
+        index = i;
+    }
+    CurrencyNode(const CurrencyNode& another) {
+        *this = another;
+    }
+    CurrencyNode& operator=(const CurrencyNode& another) {
+        index = another.index;
+    }
+    bool operator==(const CurrencyNode& another) {
+        return index == another.index;
+    }
+    bool operator!=(const CurrencyNode& another) {
+        return !(*this == another);
+    }
+private:
+    int index;
+}
+
+template<class TNode>
+bool FordBellman(Graph<TNode>& graph) {
+    vector<double> distances (graph.size(), numeric_limits<double>::max());
+    vector<int> parents (graph.size(), -1);
+    int temp;
+    for (int i = 0; i < graph.size() - 1; ++i) {
+        for (auto ptrVer = graph.begin(); ptrVer != graph.end(); ++ptrVer) {
+            auto _end = graph.GetNeighboursEnd(*ptrVer);
+            for (auto ptrEdge = graph.GetNeighboursBegin(*ptrVer); ptrEdge != _end; ++ptrEdge) {
+                temp = (*(*ptrEdge).to).index;
+                if (distance[(*ptrVer).index] + (*ptrEdge).weight < distance[temp]) {
+                    distance[temp] = distance[(*ptrVer).index] + (*ptrEdge).weight;
+                    parents[temp] = (*ptrVer).index;
+                }
+            }
+        }
+    }
+    int startFrom;
+    bool flag = false;
+    for (auto ptrVer = graph.begin(); ptr != graph.end(); ++ptr) {
+        auto _end = graph.GetNeighboursEnd(*ptrVer);
+        for (auto ptrEdge = graph.GetNeighboursBegin(*ptrVer); ptrEdge != _end; ++ptrEdge) {
+
+
+
+int main() {
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    int n;
+    cin >> n;
+    vector<node> vec;
+    for ( int i = 0; i < n; ++i) {
+        vec.push_back(node(i));
+    }
+    Graph<CurrencyNode> graph(vec);
+    double temp;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cin >> temp;
+            graph.AddEdge(vec[i], vec[j], log(temp));
+        }
+    }
+
+    return 0;
+}
+

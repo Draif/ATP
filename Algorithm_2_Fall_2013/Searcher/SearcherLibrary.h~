@@ -1,0 +1,27 @@
+#pragma once
+#include <vector>
+#include <memory>
+
+const unsigned int numberOfLetters = 26;
+
+class LetterNode {
+public:
+    LetterNode();
+    bool IsWord() const;
+    std::shared_ptr<LetterNode> GetNewNode(char c);
+    void MakeAWord();
+    const std::vector<unsigned int>& GetDocuments() const;
+private:
+    std::vector<std::shared_ptr<LetterNode>> children;
+    bool isWord;
+    unsigned int frequency;
+    std::vector<unsigned int> documents;
+};
+
+class TextIndexer {
+public:
+    TextIndexer();
+    void IndexFile(File* readFrom);
+private:
+    LetterNode root;
+};

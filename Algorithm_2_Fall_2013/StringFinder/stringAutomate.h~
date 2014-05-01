@@ -1,0 +1,71 @@
+#pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+
+class StringAutomate {
+public:
+ class State {
+        int commonPart;
+    };
+    
+public:
+    
+   
+    
+    StringAutomate(const std::string& temp) {
+        _template = ' ' + temp;
+        templateSize = temp.size();
+    }
+
+    State GetInitialState() const {
+        
+    }
+
+    State GetNextState(const State& currentState, char nextChar) {
+    }
+
+    bool IsFinal(const State& currentState) {
+    }
+
+    std::vector<int> ProcessText(const std::string& text) {
+    }
+private:
+friend class StringAutomateFactory;
+    std::vector<int> prefixes;
+    std::vector<State> states;
+    std::string _template;
+    int templateSize;
+    void PrefixFunction() {
+    }    
+};
+
+class StringAutomateFactory {
+    void InitializeAutomate(StringAutomate& newAutomate, const std::string& _template) const {
+        typedef newAutomate.prefixes prefix;
+        prefix.resize(_template.size());
+        prefix[1] = 0;
+        int k = 0;
+        for (int q = 2; q <= m; ++q) {
+            while (k > 0 && _template[k + 1] != _template[q]) {
+                k = prefix[k];
+            }
+            if (_template[k + 1] == _template[q]) {
+                ++k;
+            }
+            prefix[q] = k;
+        }
+
+
+
+public:
+    StringAutomate BuildAutomate(const std::string& _template) {
+        StringAutomate returnAutomate(_template);
+        return returnAutomate;
+    }
+};
+
+
+
+
+

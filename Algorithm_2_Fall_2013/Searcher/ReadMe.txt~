@@ -1,0 +1,1 @@
+Мой поисковик использует bison (http://en.wikipedia.org/wiki/GNU_bison) и flex (http://en.wikipedia.org/wiki/Flex_lexical_analyser). Грамматика описана в файле grammatics.y, а парсер - reserve.l. Лучше всего собирать проект с Makefile, который находиться в папке. Каждый запрос необходимо вводить в одной строке.   

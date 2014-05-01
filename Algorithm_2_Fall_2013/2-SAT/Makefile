@@ -1,0 +1,10 @@
+CC = g++
+CFLAGS = -std=c++0x
+LIBRARY = /home/draif/Documents/Algorithm/Libraries
+INCLUDE = -I$(LIBRARY)
+OUT = 2-SAT
+
+all: $(OUT)
+
+$(OUT): 
+	$(CC) 2SAT.cpp -o $@ $(CFLAGS) $(INCLUDE)

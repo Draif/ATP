@@ -1,0 +1,14 @@
+CC = g++
+CFLAGS = -std=c++0x
+RM = rm -rf
+OUT = tests
+BOOST = /home/draif/boost/boost_1_55_0
+INCLUDE = -I$(BOOST)
+
+all: $(OUT)
+
+$(OUT): tests.cpp stringAutomate.h
+	$(CC) $< -o $@ $(CFLAGS) $(INCLUDE)
+
+clean:
+	$(RM) $(OUT)
