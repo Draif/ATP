@@ -136,20 +136,8 @@ template <  class ReturnType,
 class ThreadPool {
     typedef std::function<ReturnType(void)> TTask;
 public:
-    ThreadPool() : queue(), done(false), joiner(threads) {
-        int hard_conc = std::thread::hardware_concurrency();
-        unsigned int thread_count  = (hard_conc > 0)? hard_conc : 2;
-        try {
-            for (unsigned i = 0; i < thread_count; ++i) {
-                threads.push_back((boost::thread(&ThreadPool::worker_thread, this)));
-            }
-        } catch(...) {
-            std::cerr << "Something was broken down!\n";
-            done = true;
-        }
-    }
-    
-    ThreadPool(int numberOfThreads) : queue(), done(false), joiner(threads) {
+
+    ThreadPool(int numberOfThreads = 0) : queue(), done(false), joiner(threads) {
         int hard_conc = (numberOfThreads)? numberOfThreads : std::thread::hardware_concurrency();
         unsigned int thread_count  = (hard_conc > 0)? hard_conc : 2;
         try {
