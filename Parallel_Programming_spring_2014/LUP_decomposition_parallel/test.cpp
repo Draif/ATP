@@ -3,10 +3,10 @@
  *
  *       Filename:  test.cpp
  *
- *    Description:  Test for PrefixScan.hpp
+ *    Description:  Test for LUP_decomposition_parallel.hpp
  *
  *        Version:  1.0
- *        Created:  21.04.2014 23:08:53
+ *        Created:  01.05.2014 10:08:53
  *       Revision:  none
  *       Compiler:  gcc
  *
