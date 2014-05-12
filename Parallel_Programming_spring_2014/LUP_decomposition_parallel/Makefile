@@ -10,7 +10,11 @@ OUT = LUP
 all: $(OUT) clean
 
 $(OUT): test.cpp LUP_decomposition_parallel.hpp
-	$(CC) $(CFLAGS) $< -o $@  $(INCLUDE) $(BOOSTTHREAD) $(THREADLIB)
+	$(CC) $(CFLAGS) -g $< -o $@  $(INCLUDE) $(BOOSTTHREAD) $(THREADLIB)
+
+release: test.cpp LUP_decomposition_parallel.hpp
+	$(CC) $(CFLAGS) -g $< -o $(OUT)  $(BOOSTTHREAD) $(THREADLIB)
+	
 
 clean:
 	rm -f *.gch   
